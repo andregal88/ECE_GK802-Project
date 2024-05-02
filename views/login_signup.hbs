@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+         
+    <title>DA Tennis Club-Login</title> 
+</head>
+<body>
+    <header>
+
+        <a href="/"> <img src="./images/logo.png" class="logo"></a></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Αρχική</a></li>
+                <li><a href="#">Γήπεδα</a></li>
+                <li><a href="#">Προπονητές</a></li>
+                <li><a href="#">Επικοινωνία</a></li>
+            </ul>
+        </nav>
+        <!-- <a class="sign-up" href="#"><button>Εγγραφή</button></a> -->
+        <a class="register" href="#"><button>Σύνδεση</button></a>
+    </header>
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Εισάγετε email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Εισάγετε κωδικό" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Θυμήσου με???</label>
+                        </div>
+                        
+                        <a href="#" class="text">Ξέχασες τον κωδικό σου?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Σύνδεση">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Δεν ειστε μέλος?
+                        <a href="#" class="text signup-link">Κάντε εγγραφή</a>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Εγγραφή</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Εισάγετε το όνομα σας" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Εισάγετε το επίθετο σας" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Δημιουργήστε τον κωδικό σας" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Επιβεβαιώστε τον κωδικό σας" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon">
+                            <label for="termCon" class="text">Αποδέχομαι όλους τους όρους και τις συνθήκες</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Signup">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Είστε ήδη μέλος?
+                        <a href="#" class="text login-link">Συνδεθείτε</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script src="script.js"></script> 
+</body>
+</html>
