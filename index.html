@@ -1,135 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DA Tennis Club-Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gantt Chart</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            position: relative;
+            cursor: pointer;
+        }
+        .booking {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #007bff;
+            opacity: 0.5;
+        }
+        .selected {
+            background-color: #ffa500;
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-
-        <a href="index.html"> <img src="/images/logo.png" class="logo"></a></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Αρχική</a></li>
-                <li><a href="#">Γήπεδα</a></li>
-                <li><a href="#">Προπονητές</a></li>
-                <li><a href="#">Επικοινωνία</a></li>
-            </ul>
-        </nav>
-        <!-- <a class="sign-up" href="#"><button>Εγγραφή</button></a> -->
-        <a class="register" href="#"><button>Σύνδεση</button></a>
-    </header>
-    <div class="scroller">
-        <div class="section1">
-            <!-- <img src="./images/homepage-pic1.jpg"> -->
-            <video autoplay muted loop id="myVideo">
-                <source src="/images/bgVideo.mp4" type="video/mp4">
-            </video>
-            <div class="welcome">
-                <h1>Welcome to DA Tennis Club</h1>
-            </div>
-        </div>
-        <div class="history_container">
-            <section class="about">
-                <div class="about-image1">
-                    <img src="./images/transparent_logo_blue.png" alt="photo1">
-                </div>
-                <div class="about-content">
-                    <h2>About the Club</h2>
-                    <p>Welcome to DA Tennis Club! Discover a vibrant community for players of all levels.
-                        Our state-of-the-art facilities, professional coaching, and social events make us the perfect
-                        place to elevate your game and make lasting connections.
-                        Join us today and let's serve up some fun together!"</p>
-
-                </div>
-
-                <div class="about-image2">
-                    <img src="./images/about.jpg" alt="photo2">
-                </div>
-            </section>
-        </div>
-        <div class="coachContainer">
-            <section class="coaches">
-                <div class="coach">
-                    <div class="image">
-                        <img src="./images/coach-photo.png">
-                    </div>
-                    <div class="coachContent">
-                        <h1>Take your game to the next level!</h1>
-                        <p>Our experienced coaches are here to elevate your game and ignite your passion for tennis. 
-                         Whether you're a beginner or a seasoned player, our personalized instruction and innovative
-                            techniques will help you reach your full potential.
-                        Join us today and take your game to the next level!
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- <div class="section4proponhtes"></div> -->
-        <!-- <div class="final"></div> -->
-
-        <div class="container">
-            <div style="text-align:center">
-                <h2>Contact Us</h2>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <img src="/images/contact_us.jpg" style="width:100%">
-                </div>
-                <div class="column">
-                    <form action="/action_page.php">
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" >
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lastname" >
-                        <label for="email">email:</label>
-                        <input type="text" id="email" name="email">
-                    </form>
-
-
-                    <label for="inquiry">Κατηγορία </label>
-                    <select id="inquiry" name="inquiry">
-                        <option value="event">Εκδήλωση</option>
-                        <option value="info">Συνδρομή</option>
-
-                    </select>
-                    <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.."
-                        style="height:170px"></textarea>
-                    <input type="submit" value="Submit" class="submitBtn">
-                    </form>
-
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <footer>
-                <p>© Omada 12
-
-            </footer>
-        </div>
-        <!-- <div id="cookies">
-            <div class="container">
-                <div class="subcontainer">
-                     <div class="cookies">
-                        <p>Αυτός ο ιστότοπος χρησιμοποιεί cookies για την βέλτιστη εμπειρία του χρήστη.<a
-                                href="">Περισσοτερες Πληροφοριες</a></p>
-                        <button id="cookies-btn">Αποδέχομαι</button> -->
+    <div class="coaches">
+        <img src="coach1.jpg" width="100" onclick="selectCoach(this)">
+        <img src="coach2.jpg" width="100" onclick="selectCoach(this)">
+        <img src="coach3.jpg" width="100" onclick="selectCoach(this)">
     </div>
+    <div class="fields">
+        <img src="field1.jpg" width="100" onclick="selectField(this)">
+        <img src="field2.jpg" width="100" onclick="selectField(this)">
+        <img src="field3.jpg" width="100" onclick="selectField(this)">
     </div>
-    </div>
-    </div>
+    <button onclick="previousWeek()">&#8592; Previous Week</button>
+    <button onclick="nextWeek()">Next Week &#8594;</button>
+    <br><br>
+    <label for="datepicker">Select a date:</label>
+    <input type="date" id="datepicker" onchange="updateGanttChart()">
+    <label for="hours">Select the number of hours:</label>
+    <select id="hours" onchange="updateSelectedHours()">
+        <option value="1">1 Hour</option>
+        <option value="2">2 Hours</option>
+        <option value="3">3 Hours</option>
+    </select>
+    <button onclick="bookSession()">Book Session</button>
+    <hr>
+    <div id="ganttChart"></div>
 
-    </div>
+    <script>
+        let startDate = new Date();
+        let selectedCoach = null;
+        let selectedField = null;
+        let selectedHours = 1;
 
+        function updateGanttChart() {
+            const ganttChart = document.getElementById('ganttChart');
+            const selectedDate = new Date(document.getElementById('datepicker').value);
 
+            // Set startDate to the beginning of the week containing the selected date
+            startDate = new Date(selectedDate);
+            startDate.setDate(startDate.getDate() - startDate.getDay()); // Go back to Sunday of the current week
 
-    <script src="script.js"></script>
+            // Clear previous content
+            ganttChart.innerHTML = '';
+
+            // Create table
+            const table = document.createElement('table');
+            ganttChart.appendChild(table);
+
+            // Create header row for days and dates
+            const headerRow = table.insertRow();
+            headerRow.insertCell().textContent = 'Time';
+            let currentDate = new Date(startDate);
+            for (let i = 0; i < 7; i++) {
+                const cell = headerRow.insertCell();
+                const dateString = currentDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+                cell.textContent = dateString;
+                currentDate.setDate(currentDate.getDate() + 1); // Increment date by 1 day
+            }
+
+            // Create rows for each hour up to 21:00
+            for (let hour = 13; hour < 21; hour++) {
+                const row = table.insertRow();
+                const hourString = `${hour}:00 - ${hour + 1}:00`;
+                row.insertCell().textContent = hourString;
+                for (let i = 0; i < 7; i++) {
+                    const cell = row.insertCell();
+                    cell.dataset.date = new Date(startDate);
+                    cell.dataset.hour = hour;
+                    cell.addEventListener('click', handleCellClick);
+                }
+            }
+        }
+
+        function handleCellClick(event) {
+            // Check if the clicked cell is in the first row
+            if (event.target.parentElement.rowIndex === 0) {
+                return; // Skip cells in the first row
+            }
+
+            // Check if coach and field are selected
+            if (!selectedCoach || !selectedField) {
+                alert('Please select a coach and a field.');
+                return;
+            }
+
+            // Get the number of hours selected
+            const numHours = parseInt(selectedHours);
+
+            // Get the clicked cell's column index and row index
+            const columnIndex = event.target.cellIndex;
+            const rowIndex = event.target.parentElement.rowIndex;
+
+            // Get all cells in the same column
+            const cellsInColumn = document.querySelectorAll(`td:nth-child(${columnIndex + 1})`);
+
+            // Get the clicked cell within the column
+            const cell = cellsInColumn[rowIndex - 1]; // Subtract 1 to account for the header row
+
+            // Get the selected hour
+            const selectedHour = parseInt(cell.dataset.hour);
+
+            // Get the selected date based on the current startDate
+            const selectedDate = new Date(startDate);
+            selectedDate.setDate(selectedDate.getDate() + columnIndex - 1); // Adjust for the header row
+            selectedDate.setHours(selectedHour);
+
+            // Check if the selected session exceeds the available hours
+            if (selectedHour + numHours > 21) {
+                alert('The session exceeds available hours for the day.');
+                return;
+            }
+
+            // Toggle the appearance of the selected cells
+            for (let i = selectedHour; i < selectedHour + numHours; i++) {
+                const cell = cellsInColumn[i - 13];
+                cell.classList.toggle('selected');
+            }
+        }
+
+        function selectCoach(coach) {
+            selectedCoach = coach;
+            // Remove 'selected' class from all coaches
+            const coaches = document.querySelectorAll('.coaches img');
+            coaches.forEach(c => c.classList.remove('selected'));
+            // Add 'selected' class to the selected coach
+            coach.classList.add('selected');
+        }
+
+        function selectField(field) {
+            selectedField = field;
+            // Remove 'selected' class from all fields
+            const fields = document.querySelectorAll('.fields img');
+            fields.forEach(f => f.classList.remove('selected'));
+            // Add 'selected' class to the selected field
+            field.classList.add('selected');
+        }
+
+        function updateSelectedHours() {
+            selectedHours = document.getElementById('hours').value;
+        }
+
+        function bookSession() {
+            // Check if coach and field are selected
+            if (!selectedCoach || !selectedField) {
+                alert('Please select a coach and a field.');
+                return;
+            }
+
+            // Get the selected date
+            const selectedDate = document.getElementById('datepicker').value;
+            if (!selectedDate) {
+                alert('Please select a date.');
+                return;
+            }
+
+            // Get the selected cells
+            const selectedCells = document.querySelectorAll('td.selected');
+            if (selectedCells.length === 0) {
+                alert('Please select a time slot.');
+                return;
+            }
+
+            // Simulate booking (replace with your own code)
+            const startTime = parseInt(selectedCells[0].dataset.hour);
+            const endTime = startTime + parseInt(selectedHours);
+            console.log(`Booked session for Coach: ${selectedCoach.alt}, Field: ${selectedField.alt}, Date: ${selectedDate}, Time: ${startTime}:00 - ${endTime}:00`);
+
+            // Clear the selected cells
+            selectedCells.forEach(cell => cell.classList.remove('selected'));
+        }
+
+        function previousWeek() {
+            startDate.setDate(startDate.getDate() - 7);
+            updateGanttChart();
+        }
+
+        function nextWeek() {
+            startDate.setDate(startDate.getDate() + 7);
+            updateGanttChart();
+        }
+
+        // Initialize Gantt chart with current date
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('datepicker').valueAsDate = new Date();
+            updateGanttChart();
+        });
+    </script>
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
