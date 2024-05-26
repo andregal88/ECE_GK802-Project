@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.coachesContainer {
+  font-family: 'Montserrat';
+  font-size: 22px;
+  padding-top: 20px;
+  padding-left: 10% ;
+  padding-right: 10%;
+}
+
+
+#programsBtn,
+#LessonsBtn {
+  width: 100%;
+  /* Make buttons full width */
+  background-color: #0088a9;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  /* Center text */
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* Add cursor pointer */
+  transition: background-color 0.3s ease;
+  /* Add transition effect for color change */
+}
+
+#programsBtn:hover,
+#LessonsBtn:hover {
+  background-color: #006380;
+  /* Change color on hover */
+}
+
+.button-clicked {
+  background-color: darkgreen;
+}
+
+#myProgramsDIV,
+#LessonsDIV {
+  /* Also fix the typo here */
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+#myProgramsDIV ul,
+#LessonsDIV ul {
+  padding-left: 0;
+  /* Remove default padding */
+  list-style-position: inside;
+  /* Position list item markers inside the list item */
+}
+
+#myProgramsDIV li,
+#LessonsDIV li {
+  /* Ensure the styling applies to both lists */
+  color: black;
+  font-size: 15px;
+}
+
+#coachesSectionPic{
+  padding-top: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  
+}
+
+#LessonsDIV li a {
+  color: blue;
+}

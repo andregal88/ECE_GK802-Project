@@ -1,0 +1,15 @@
+<header>
+        <a href="/" class="header-left"> <img src="/images/logo.png" class="logo"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Αρχική</a></li>
+                <li><a href="/booking">Booking</a></li>
+                <li><a href="/contact">Επικοινωνία</a></li>
+            </ul>
+        </nav>
+        {{#if user}}
+        <a class="register" href="/users/logout"><button>Αποσύνδεση</button></a>
+        {{else}}
+        <a class="register" href="/login"><button>Σύνδεση</button></a>
+        {{/if}}
+</header>

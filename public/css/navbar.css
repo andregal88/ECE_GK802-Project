@@ -1,0 +1,73 @@
+.logo {
+    /* cursor: pointer; */
+    width: 100px;
+    height: 100px;
+    /* transition: all 2s;     */
+  }
+  
+  
+  li,
+  a,
+  button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #042c3a;
+    text-decoration: none;
+  }
+  
+  header {
+    margin-top: 0;
+    width: 100%;
+    padding: auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;  /* This keeps the navigation items on the right */
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+  }
+  
+  .header-left {
+    margin-right: auto; /* This pushes the logo to the left */
+  }
+  
+  .nav-links {
+    list-style: none;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+    padding: 0px 5px;
+  
+  }
+  
+  .nav-links li a {
+    transition: all 0.3s ease 0s;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+  }
+  
+  .nav-links li a:hover {
+    color: #0088a9;
+  }
+  
+  /* .sign-up>button {
+    padding: 9px 25px;
+    margin-left: 50px;
+    background-color: rgb(36, 161, 92);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  } */
+  
+  .register>button {
+    padding: 9px 25px;
+    margin: 12px;
+    background-color: rgba(0, 136, 169, 0.8);
+    border: none;
+    border-radius: 0px; /* For sharp rectangular corners */ 
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }

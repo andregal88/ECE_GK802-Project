@@ -1,0 +1,76 @@
+<div class="scroller">
+    <div class="section1">
+        <video autoplay muted loop id="myVideo">
+            <source src="/images/bgVideo.mp4" type="video/mp4">
+        </video>
+        <div class="welcome">
+            <h1>Welcome to DA Tennis Club</h1>
+        </div>
+    </div>
+    <div class="history_container">
+        <section class="about">
+            <div class="about-image1">
+                <img src="/images/transparent_logo_blue.png" alt="photo1">
+            </div>
+            <div class="about-content">
+                <h2>About the Club</h2>
+                <p>Welcome to DA Tennis Club! Discover a vibrant community for players of all levels.
+                    Our state-of-the-art facilities, professional coaching, and social events make us the perfect
+                    place to elevate your game and make lasting connections.
+                    Join us today and let's serve up some fun together!"</p>
+            </div>
+            <div class="about-image2">
+                <img src="/images/about.jpg" alt="photo2">
+            </div>
+        </section>
+    </div>
+    <div class="coachContainer">
+        <section class="coaches">
+            <div class="coach">
+                <div class="image">
+                    <img src="/images/coach-photo.png">
+                </div>
+                <div class="coachContent">
+                    <h1>Take your game to the next level!</h1>
+                    <p>Our experienced coaches are here to elevate your game and ignite your passion for tennis.
+                        Whether you're a beginner or a seasoned player, our personalized instruction and innovative
+                        techniques will help you reach your full potential.
+                        Join us today and take your game to the next level!
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="row">
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8857.746883223108!2d21.780574654418913!3d38.28676077016251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e4bb9018fe383%3A0x15d2b8e32461b6c9!2zzqDOsc69zrXPgM65z4PPhM63zrzOuc6xzrrPjCDOk8-FzrzOvc6xz4PPhM6uz4HOuc6_!5e0!3m2!1sel!2sgr!4v1714346902855!5m2!1sel!2sgr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="column">
+                <form action="/action_page.php">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname">
+                    <label for="email">email:</label>
+                    <input type="text" id="email" name="email">
+                </form>
+                <label for="inquiry">Κατηγορία </label>
+                <select id="inquiry" name="inquiry">
+                    <option value="event">Εκδήλωση</option>
+                    <option value="info">Συνδρομή</option>
+                </select>
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something..."
+                    style="height:170px"></textarea>
+                <input type="submit" value="Submit" class="submitBtn">
+            </div>
+        </div>
+    </div>
+</div>
+

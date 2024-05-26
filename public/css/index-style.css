@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.welcome {
+  font-size: 50px;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.welcome>h1 {
+  display: flex;
+  color: #fff;
+  align-items: flex-start;
+}
+
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.history_container{
+  background-color:#f7f7f7 ;
+}
+.about-image1 {
+  flex: 1;
+  overflow: hidden;
+}
+.about-image2 {
+  flex: 1;
+  overflow: hidden;
+}
+
+.about-image1 img {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  max-width: 70%;
+  height: auto;
+  display: block;
+}
+.about-image2 img {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.about-content {
+  flex: 1;
+  align-items:flex-start;
+}
+
+.about-content p, h2{
+  font-family: 'Montserrat';
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.coachContainer{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.coachContent{
+  font-family: 'Montserrat';
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.coach {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  flex: 0 0 auto; /* To prevent the image from growing */
+  margin-right: 20px; /* Adjust as needed */
+}
+
+
+
+
+#myVideo {
+  position: flex;
+  flex: 1;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #0782c4;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: right;
+  width: 40%; /* Adjust width as needed */
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.submitBtn{
+  width: 100%;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+  .column,
+  input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+iframe{
+  float:left;
+  width: 50%;
+  height:500px;
+}
+
