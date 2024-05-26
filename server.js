@@ -4,7 +4,7 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.mjs';
 import pageRoutes from './routes/pageRoutes.mjs';
-
+import adminRoutes from './routes/adminRoutes.mjs';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.engine('.hbs', engine({
     extname: '.hbs',
-    defaultLayout: 'main', // Ορίζουμε το main ως το προεπιλεγμένο layout
+    defaultLayout: 'main',
     layoutsDir: 'views/layouts/'
 }));
 app.set('view engine', '.hbs');
@@ -37,10 +37,14 @@ app.use((req, res, next) => {
 // Routes
 app.use('/users', userRoutes);
 app.use('/', pageRoutes);
+app.use('/admin', adminRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
 
 
 

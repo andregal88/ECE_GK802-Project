@@ -4,11 +4,17 @@
             <ul class="nav-links">
                 <li><a href="/">Αρχική</a></li>
                 <li><a href="/booking">Booking</a></li>
+                {{#if admin}}
+                <li><a href="/admin/messages">Μηνύματα</a></li>
+                {{else}}
                 <li><a href="/contact">Επικοινωνία</a></li>
+                {{/if}}
             </ul>
         </nav>
         {{#if user}}
         <a class="register" href="/users/logout"><button>Αποσύνδεση</button></a>
+        {{else if admin}}
+        <a class="register" href="/admin/logout"><button>Αποσύνδεση</button></a>
         {{else}}
         <a class="register" href="/login"><button>Σύνδεση</button></a>
         {{/if}}
