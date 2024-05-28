@@ -21,6 +21,7 @@ dotenv
 express
 express-handlebars
 express-session
+randomcolor
 ```
 
 Για την εκτέλεση της εφαρμογής απλά τρέχετε την εντολή(δεδομένου ότι είστε στο σωστό path):
