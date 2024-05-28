@@ -1,19 +1,25 @@
-import express from 'express';
-import { adminLogin, adminLogout, getMessages } from '../controllers/AdminController.mjs';
-const router = express.Router();
+import { Router } from 'express';
+import {
+    adminLogin,
+    adminLogout,
+    getMessages,
+    getAdminBookings,
+    blockCells,
+    unblockCells,
+    getBookings
+} from '../controllers/AdminController.mjs';
 
-const redirectIfNotAdmin = (req, res, next) => {
-    if (!req.session.admin) {
-        return res.redirect('/admin/login');
-    }
-    next();
-};
+const router = Router();
 
-router.get('/login', (req, res) => res.render('admin/admin_login', { layout: 'main' }));
 router.post('/login', adminLogin);
 router.get('/logout', adminLogout);
-router.get('/messages', redirectIfNotAdmin, getMessages);
-
+router.get('/messages', getMessages);
+router.get('/admin-bookings', getAdminBookings);
+router.post('/block', blockCells);
+router.post('/unblock', unblockCells);
+router.get('/bookings', getBookings);
 
 export default router;
+
+
 

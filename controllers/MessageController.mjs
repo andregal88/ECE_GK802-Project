@@ -2,7 +2,7 @@ import db from '../db.mjs';
 
 export const saveMessage = (req, res) => {
     const { fullname,email, subject, message } = req.body;
-    const stmt = db.prepare('INSERT INTO messages ( fullname,email, subject, message) VALUES (?, ?, ?, ?)');
+    const stmt = db.prepare('INSERT INTO messages ( fullname, email, subject, message) VALUES (?, ?, ?, ?)');
     stmt.run( fullname,email, subject, message);
     res.redirect('/contact');
 };

@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.mjs';
 import pageRoutes from './routes/pageRoutes.mjs';
 import adminRoutes from './routes/adminRoutes.mjs';
+import bookingRoutes from './routes/bookingRoutes.mjs';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use(session({
     cookie: { maxAge: 3600000, sameSite: true }
 }));
 
+
 // Middleware για έλεγχο αν ο χρήστης είναι συνδεδεμένος
 app.use((req, res, next) => {
     res.locals.user = req.session.user;
@@ -37,11 +39,14 @@ app.use((req, res, next) => {
 // Routes
 app.use('/users', userRoutes);
 app.use('/', pageRoutes);
+app.use('/bookings', bookingRoutes);
 app.use('/admin', adminRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
 
 
 

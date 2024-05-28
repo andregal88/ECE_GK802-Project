@@ -1,14 +1,16 @@
 footer {
-    height: 100px; /* Adjust height as needed */
-    width: 100%;
-  }
+  height: auto; /* Adjust height as needed */
+  width: auto;
+}
+
+footer p {
   
-  footer p {
-    
-    text-align: center;
-      color: #f7f7f7;
-      background-color: rgb(13, 97, 214);
-      max-width: 100%;
-      margin: 0; /* Remove default margin */
-      padding: 20px;
-    }
+  text-align: center;
+    color: #f7f7f7;
+    background-color: #006942;
+    max-width: 100%;
+    margin: 0; /* Remove default margin */
+    padding: 20px;
+  
+    font-family: 'Montserrat';
+  }

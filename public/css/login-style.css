@@ -9,9 +9,11 @@
 }
 
 .logo {
-    width: 140px;
-    height: 140px;
-    margin-right: 900px;
+    cursor: pointer;
+    width: 100px;
+    max-width: 85%;
+    height: auto;
+    display: block;
 }
 
 li,
@@ -22,6 +24,7 @@ button {
     font-size: 12px;
     color: #edf0f1;
     text-decoration: none;
+
 }
 
 header {
@@ -31,10 +34,11 @@ header {
     background-color: #fff;
     display: flex;
     justify-content: flex-end;
+    /* This keeps the navigation items on the right */
     align-items: center;
     position: fixed;
     z-index: 2;
-    top: 0;
+
 }
 
 .nav-links {
@@ -61,7 +65,7 @@ header {
     margin: 12px;
     background-color: rgba(0, 136, 169, 0.8);
     border: none;
-    border-radius: 0px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -71,7 +75,8 @@ button:hover {
 }
 
 body {
-    height: 100vh;
+    height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -81,9 +86,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4070f4;
+    background-image: url('/images/tim-chow-iiWhddT4SB4-unsplash.jpg');
+    /* Σωστή διαδρομή εικόνας */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Προσθήκη background-color για δοκιμή */
 }
-
 .container {
     position: relative;
     max-width: 430px;
@@ -92,8 +104,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 20px;
+    margin: 80px 20px 20px 20px; /* Αυξάνουμε το margin-top για να αποφύγουμε τη σύγκρουση με το navbar */
+    position: relative;
+    z-index: 1;
 }
+
+
 
 .container .forms {
     display: flex;
@@ -122,12 +138,13 @@ body {
 }
 
 .container.active .signup {
+    padding-top: 60px;
     opacity: 1;
     transition: opacity 0.2s ease;
 }
 
 .container.active .forms {
-    height: 600px;
+    height: 710px;
 }
 
 .container .form .title {
@@ -143,7 +160,7 @@ body {
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: #4070f4;
+    background-color: #006942;
     border-radius: 25px;
 }
 
@@ -168,7 +185,7 @@ body {
 }
 
 .input-field input:is(:focus, :valid) {
-    border-bottom-color: #4070f4;
+    border-bottom-color: #006942;
 }
 
 .input-field i {
@@ -180,8 +197,8 @@ body {
     transition: all 0.2s ease;
 }
 
-.input-field input:is(:focus, :valid) ~ i {
-    color: #4070f4;
+.input-field input:is(:focus, :valid)~i {
+    color: #006942;
 }
 
 .input-field i.icon {
@@ -192,6 +209,31 @@ body {
     right: 0;
     cursor: pointer;
     padding: 10px;
+}
+
+.input-field.button button {
+    /* Target input field buttons */
+    background-color: rgba(0, 136, 169, 0.8);
+    /* Example background color */
+    color: #fff;
+    /* Example text color */
+    font-size: 16px;
+    /* Example font size */
+    font-weight: 500;
+    /* Example font weight */
+    padding: 10px 20px;
+    /* Example padding */
+    border: none;
+    /* Example border style */
+    border-radius: 6px;
+    /* Example border radius */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for input buttons */
+.input-field.button button:hover {
+    background-color: rgba(0, 136, 169, 1);
 }
 
 .form .checkbox-text {
@@ -208,7 +250,7 @@ body {
 
 .checkbox-content input {
     margin-right: 10px;
-    accent-color: #4070f4;
+    accent-color: #006942;
 }
 
 .form .text {
@@ -217,7 +259,7 @@ body {
 }
 
 .form a.text {
-    color: #4070f4;
+    color: #006942;
     text-decoration: none;
 }
 
@@ -236,26 +278,43 @@ body {
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #4070f4;
+    background-color: #006942;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .button input:hover {
-    background-color: #265df2;
+    background-color: #006942;
 }
 
-.form .login-signup {
+.form .login-signup{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form .admin-signup{
     margin-top: 30px;
     text-align: center;
 }
 
+/* CSS για το κουμπί "Σύνδεση ως διαχειριστής" */
+.admin-signup-button {
+    display: inline-block;
+    padding: 9px 25px;
+    border: none;
+    cursor: pointer;
+    text-align: center; /* Εξασφαλίζει ότι το κείμενο είναι κεντραρισμένο */
+}
+
+
 footer {
-    background-color: #1F4591;
+    height: auto;
+    /* Adjust height as needed */
+    width: 100%;
     color: white;
-    padding: 20px;
     text-align: center;
-    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: auto;
+    /* Push the footer to the bottom */
 }
 
 

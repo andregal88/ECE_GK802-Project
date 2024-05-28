@@ -18,6 +18,9 @@
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
-    "mongoose": "^8.4.0"
+    "randomcolor": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/randomcolor": "^0.5.9"
   }
 }
