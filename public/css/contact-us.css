@@ -1,38 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}  
-
-body {
-    font-family: "Montserrat", sans-serif; 
-    background: rgb(233, 233, 233);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Change from center to flex-start */
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bg-image {
-    background-image: url('images/login_photo.jpg'); 
+body {
+    flex: 1;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    background-image: url('/images/aleksandar-kyng-dhkdfFxGHfU-unsplash.jpg');
     background-size: cover;
-    background-position: center center;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: -1;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {
     width: 100%;
     background-color: #333;
     overflow: hidden;
-    position: fixed; /* Make sure the navbar stays on top */
-    top: 0; /* Align the navbar to the top */
+    position: fixed;
+    top: 0;
 }
 
 .navbar a {
@@ -56,75 +47,85 @@ body {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  width: 400px;
-  border-radius: 10px;
-  overflow: hidden;
-  -webkit-box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.6); 
-  box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.4);
-  margin-top: 80px; /* Add margin-top to avoid overlap with the navbar */
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.8);
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 40px 9px rgba(0, 0, 0, 0.4);
+    margin-top: 120px;
+    margin-bottom: 50px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .head {
-  background: rgb(0, 132, 255);
-  margin-bottom: 10px;
-  padding: 15px;
+    background: rgba(0, 136, 169, 0.8);
+    margin-bottom: 30px;
+    padding: 15px;
 }
 
-.head h1,
-p {
-  text-align: center;
-  color: white;
+.head h1, .head p {
+    text-align: center;
+    color: white;
 }
 
 .head p {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 label {
-  margin-left: 20px;
+    margin-left: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-input,
+input, textarea {
+    padding: 10px;
+    margin: 5px 20px 20px 20px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid rgba(0, 136, 169, 0.8);
+}
+
 textarea {
-  padding: 10px;
-  margin: 5px 20px 20px 20px;
-  outline: none;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-input:focus,
-textarea:focus {
-  border: 1px solid rgb(0, 132, 255);
-}
-
-textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 button {
-  outline: none;
-  background: rgb(0, 132, 255);
-  border: none;
-  padding: 10px;
-  border-radius: 50px;
-  margin: 10px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.5s;
+    outline: none;
+    background: rgba(0, 136, 169, 0.8);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
-  background: rgb(0, 105, 204);
+    background: rgba(0, 136, 169, 1);
 }
 
 @media screen and (max-width: 417px) {
-  form {
-    width: 100%;
-    height: 100%;
-  }
+    form {
+        width: 100%;
+        height: 100%;
+    }
 }
 
+footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

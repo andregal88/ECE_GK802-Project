@@ -1,28 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 .welcome {
   font-size: 50px;
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
 
-.welcome>h1 {
+.welcome > h1 {
   display: flex;
   color: #fff;
   align-items: flex-start;
 }
-
 
 .about {
   display: flex;
@@ -30,13 +25,16 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.history_container{
-  background-color:#f7f7f7 ;
+
+.history_container {
+  background-color: #f7f7f7;
 }
+
 .about-image1 {
   flex: 1;
   overflow: hidden;
 }
+
 .about-image2 {
   flex: 1;
   overflow: hidden;
@@ -49,33 +47,34 @@
   height: auto;
   display: block;
 }
+
 .about-image2 img {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-
 .about-content {
   flex: 1;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
-.about-content p, h2{
+.about-content p,
+h2 {
   font-family: 'Montserrat';
   font-size: 18px;
   line-height: 1.5;
   color: #666;
 }
 
-.coachContainer{
+.coachContainer {
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.coachContent{
+.coachContent {
   font-family: 'Montserrat';
   font-size: 18px;
   line-height: 1.5;
@@ -88,22 +87,22 @@
 }
 
 .image {
-  flex: 0 0 auto; /* To prevent the image from growing */
-  margin-right: 20px; /* Adjust as needed */
+  flex: 0 0 auto;
+  margin-right: 20px;
 }
 
-
-
+.section1 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
 
 #myVideo {
-  position: flex;
-  flex: 1;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
 }
-
 
 input[type=text],
 select,
@@ -114,6 +113,7 @@ textarea {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+  font-family: 'Montserrat';
 }
 
 input[type=submit] {
@@ -128,44 +128,43 @@ input[type=submit]:hover {
   background-color: #0782c4;
 }
 
-/* Style the container/contact section */
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 10px;
+  font-family: 'Montserrat';
 }
 
-/* Create two columns that float next to eachother */
 .column {
   float: right;
-  width: 40%; /* Adjust width as needed */
+  width: 40%;
   padding: 20px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.submitBtn{
+.submitBtn {
   width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-
   .column,
   input[type=submit] {
-    width: 100%;
+    width: auto;
     margin-top: 0;
   }
 }
 
-iframe{
-  float:left;
+iframe {
+  float: left;
   width: 50%;
-  height:500px;
+  height: 500px;
 }
-

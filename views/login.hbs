@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="/css/login-style.css">
-    <title>DA Tennis Club-Login</title> 
+    <title>DA Tennis Club-Login</title>
 </head>
 <body>
     <div class="main-content">
         <div class="container">
             <div class="forms">
                 <div class="form login">
-                    <span class="title">Login</span>
+                    <span class="title">Σύνδεση</span>
                     <form action="/users/login" method="POST">
                         <div class="input-field">
                             <input type="text" name="username" placeholder="Εισάγετε όνομα χρήστη" required>
@@ -28,8 +28,12 @@
                         </div>
                     </form>
                     <div class="login-signup">
-                        <span class="text">Δεν είστε μέλος?
-                            <a href="#" class="text signup-link">Κάντε εγγραφή</a>
+                        <span class="text">Δεν είστε μέλος ;
+                            <a href="#" class="text signup-link">Κάντε εγγραφή <br></a>
+                        </span>
+                        
+                        <span class="text">
+                            <a href="#" class="text admin-signup-button">Σύνδεση ως διαχειριστής</a>
                         </span>
                     </div>
                 </div>
@@ -58,6 +62,7 @@
                         <div class="input-field">
                             <input type="password" name="password" class="password" placeholder="Δημιουργήστε τον κωδικό σας" required>
                             <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
                         <div class="input-field">
                             <input type="password" class="password" placeholder="Επιβεβαιώστε τον κωδικό σας" required>
@@ -67,9 +72,10 @@
                         <div class="input-field button">
                             <button type="submit">Εγγραφή</button>
                         </div>
+                        
                     </form>
                     <div class="login-signup">
-                        <span class="text">Είστε ήδη μέλος?
+                        <span class="text">Είστε ήδη μέλος;
                             <a href="#" class="text login-link">Συνδεθείτε</a>
                         </span>
                     </div>
@@ -80,6 +86,3 @@
     <script src="/scripts/script.js"></script>
 </body>
 </html>
-
-
-
