@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Contact Us</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-    {{#if success}}
-    <p>Message sent successfully!</p>
-    {{/if}}
-    {{#if error}}
-    <p>There was an error sending your message. Please try again.</p>
-    {{/if}}
     <form action="/contact" method="POST">
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required>
-
+        <div class="head">
+            <h1>Φόρμα Επικοινωνίας</h1>
+            <p>Παρακαλώ όπως συμπληρώσετε <b>όλα</b> τα πεδία</p>
+        </div>
+        <label for="name">Ονοματεπώνυμο:</label>
+        <input type="name" name="name" id="name" required>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Send Message</button>
+        <input type="email" name="email" id="email" required>
+        <label for="subject">Θέμα:</label>
+        <input type="subject" name="subject" id="subject" required>
+        <label for="message">Μήνυμα:</label>
+        <textarea name="message" id="message" required></textarea>
+        <button type="submit">Υποβολή</button>
     </form>
+<script src="/public/scripts/contact.js"></script>
 </body>
-</html>
 
+</html>
 
