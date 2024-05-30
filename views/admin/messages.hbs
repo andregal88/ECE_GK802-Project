@@ -1,20 +1,48 @@
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
-<h1>geia sou</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Messages</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <h1>Messages</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each messages}}
+                <tr>
+                    <td>{{this.fullname}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.subject}}</td>
+                    <td>
+                        <form action="/admin/messages/delete/{{this.id}}" method="POST" style="display: inline;">
+                            <button type="submit">Διαγραφη</button>
+                        </form>
+                        <button type="button" onclick="viewMessage({{this.id}})">Προβολη</button>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <!-- Modal for viewing message -->
+    <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Message Details</h2>
+            <p id="messageDetails"></p>
+        </div>
+    </div>
+
+    <script src="/scripts/admin-messages.js"></script>
+</body>
+</html>
+

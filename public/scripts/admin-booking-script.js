@@ -114,14 +114,6 @@ async function handleCellClick(event) {
 
     const cell = event.target;
     cell.classList.toggle('selected');
-
-    const selectedCells = Array.from(document.querySelectorAll('td.selected'));
-    const cellsInColumn = selectedCells.filter(selectedCell => selectedCell.cellIndex === cell.cellIndex);
-
-    if (cellsInColumn.length > 3) {
-        cell.classList.remove('selected');
-        alert('You cannot select more than 3 time slots for a day.');
-    }
 }
 
 async function handleBookedCellClick(event) {
@@ -194,6 +186,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 document.getElementById('blockBtn').addEventListener('click', blockCells);
 document.getElementById('datepicker').addEventListener('change', updateGanttChart);
+
 
 
 

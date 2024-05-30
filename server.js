@@ -6,6 +6,7 @@ import userRoutes from './routes/userRoutes.mjs';
 import pageRoutes from './routes/pageRoutes.mjs';
 import adminRoutes from './routes/adminRoutes.mjs';
 import bookingRoutes from './routes/bookingRoutes.mjs';
+import messageRoutes from './routes/messageRoutes.mjs';
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/users', userRoutes);
 app.use('/', pageRoutes);
+app.use('/', messageRoutes);
 app.use('/bookings', bookingRoutes);
 app.use('/admin', adminRoutes);
 

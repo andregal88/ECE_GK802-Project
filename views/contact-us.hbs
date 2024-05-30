@@ -1,18 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
 <body>
+    {{#if success}}
+    <p>Message sent successfully!</p>
+    {{/if}}
+    {{#if error}}
+    <p>There was an error sending your message. Please try again.</p>
+    {{/if}}
     <form action="/contact" method="POST">
-        <div class="head">
-            <h1>Φόρμα Επικοινωνίας</h1>
-            <p>Παρακαλώ όπως συμπληρώσετε <b>όλα</b> τα πεδία</p>
-        </div>
-        <label for="fullname">Ονοματεπώνυμο:</label>
-        <input type="text" name="fullname" id="fullname" required>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <label for="subject">Θέμα:</label>
-        <input type="text" name="subject" id="subject" required>
-        <label for="message">Μήνυμα:</label>
-        <textarea name="message" id="message" required></textarea>
-        <button type="submit">Υποβολή</button>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
     </form>
 </body>
+</html>
+
 
