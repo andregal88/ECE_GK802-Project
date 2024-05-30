@@ -11,6 +11,7 @@ import {
 
 const router = Router();
 
+
 router.post('/login', adminLogin);
 router.get('/logout', adminLogout);
 router.get('/messages', getMessages);

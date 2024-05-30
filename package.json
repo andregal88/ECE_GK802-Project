@@ -21,6 +21,7 @@
     "randomcolor": "^0.6.2"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.7",
     "@types/randomcolor": "^0.5.9"
   }
 }

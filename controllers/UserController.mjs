@@ -2,6 +2,7 @@ import db from '../db.mjs';
 import bcrypt from 'bcrypt';
 import randomColor from 'randomcolor';
 
+// Εγγραφή νέου χρήστη
 export const registerUser = (req, res) => {
     const { username, password, firstname, lastname, email } = req.body;
 
@@ -23,7 +24,7 @@ export const registerUser = (req, res) => {
     }
 };
 
-
+// Σύνδεση χρήστη
 export const loginUser = async (req, res) => {
     const { username, password } = req.body;
 
@@ -43,6 +44,7 @@ export const loginUser = async (req, res) => {
     }
 };
 
+// Αποσύνδεση χρήστη
 export const logoutUser = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -52,6 +54,7 @@ export const logoutUser = (req, res) => {
     });
 };
 
+// Επιστρέφει τον τρέχοντα συνδεδεμένο χρήστη
 export const getCurrentUser = (req, res) => {
     if (req.session && req.session.user) {
         res.json(req.session.user);

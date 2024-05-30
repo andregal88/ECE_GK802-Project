@@ -1,5 +1,6 @@
 import db from '../db.mjs';
 
+// Αποθηκεύει ένα νέο μήνυμα
 export async function saveMessage(req, res) {
     const { fullname, email, subject, message } = req.body;
 
@@ -13,6 +14,7 @@ export async function saveMessage(req, res) {
     }
 }
 
+// Επιστρέφει όλα τα μηνύματα στον admin
 export async function getMessages(req, res) {
     try {
         const messages = db.prepare('SELECT id, fullname, email, subject FROM messages').all();
@@ -23,6 +25,7 @@ export async function getMessages(req, res) {
     }
 }
 
+// Διαγράφει ένα μήνυμα
 export async function deleteMessage(req, res) {
     const messageId = req.params.id;
 
@@ -35,6 +38,7 @@ export async function deleteMessage(req, res) {
     }
 }
 
+// Επιστρέφει το περιεχόμενο ενός μηνύματος
 export async function viewMessage(req, res) {
     const messageId = req.params.id;
 

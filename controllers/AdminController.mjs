@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import db from '../db.mjs';
 
+// Συνδέει τον admin
 export const adminLogin = async (req, res) => {
     const { username, password } = req.body;
 
@@ -12,14 +13,15 @@ export const adminLogin = async (req, res) => {
             req.session.admin = admin;
             res.redirect('/');
         } else {
-            res.render('admin/admin_login', { layout: 'main', error: 'Invalid credentials' });
+            res.redirect('/admin_login');
         }
     } catch (error) {
         console.error('Error logging in admin:', error);
-        res.redirect('/admin/login');
+        res.render('admin/admin_login', { layout: 'main', error: 'An error occurred. Please try again.' });
     }
 };
 
+// Αποσυνδέει τον admin
 export const adminLogout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -29,6 +31,7 @@ export const adminLogout = (req, res) => {
     });
 };
 
+// Επιστρέφει όλα τα μηνύματα απο το contact form
 export const getMessages = (req, res) => {
     if (!req.session.admin) {
         return res.redirect('/admin/login');
@@ -37,6 +40,7 @@ export const getMessages = (req, res) => {
     res.render('admin/messages', { css: 'messages-style.css', isAdmin: true, messages });
 };
 
+// Επιστρέφει όλες τις κρατήσεις
 export const getAdminBookings = async (req, res) => {
     if (!req.session.admin) {
         return res.redirect('/admin/login');
@@ -46,10 +50,17 @@ export const getAdminBookings = async (req, res) => {
     res.render('admin/admin-bookings', { layout: 'main', css: 'admin-bookings.css', isAdmin: true, bookings });
 };
 
+// Κλείνει ένα slot για συντήρηση
 export const blockSlot = async (req, res) => {
     const { date, hour } = req.body;
 
     try {
+        // Ελέγχει αν το slot είναι ήδη κλεισμένο από άλλον χρήστη ή admin
+        const existingBooking = db.prepare('SELECT * FROM bookings WHERE date = ? AND hour = ?').get(date, hour);
+        if (existingBooking) {
+            throw new Error(`The slot on ${date} at ${hour}:00 is already booked.`);
+        }
+
         const stmt = db.prepare('INSERT INTO bookings (user_id, date, hour, color, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)');
         stmt.run(-1, date, hour, '#000000', 'Κλειστό', 'λόγω συντήρησης');
         res.json({ success: true });
@@ -59,6 +70,7 @@ export const blockSlot = async (req, res) => {
     }
 };
 
+// Επιστρέφει όλες τις κρατήσεις
 export const getBookings = (req, res) => {
     try {
         const bookings = db.prepare(`
@@ -73,13 +85,19 @@ export const getBookings = (req, res) => {
     }
 };
 
-// Function to block cells for maintenance
+// Κλείνει πολλαπλά slots για συντήρηση
 export const blockCells = (req, res) => {
     const { bookings } = req.body;
 
     try {
         const insertBooking = db.transaction(() => {
             bookings.forEach(booking => {
+                // Ελεγχει αν το cell ειναι ηδη κρατημενο απο αλλο user
+                const existingBooking = db.prepare('SELECT * FROM bookings WHERE date = ? AND hour = ?').get(booking.date, booking.hour);
+                if (existingBooking) {
+                    throw new Error(`The slot on ${booking.date} at ${booking.hour}:00 is already booked.`);
+                }
+
                 db.prepare(`
                     INSERT INTO bookings (user_id, date, hour, firstname, lastname, color)
                     VALUES (-1, ?, ?, 'Κλειστό', 'Λόγω Συντήρησης', '#000000')
@@ -95,7 +113,7 @@ export const blockCells = (req, res) => {
     }
 };
 
-// Function to unblock cells for maintenance
+// Απελευθερωνει slots που είναι κλεισμένα για συντήρηση
 export const unblockCells = (req, res) => {
     const { date, hour } = req.body;
 
@@ -110,7 +128,3 @@ export const unblockCells = (req, res) => {
         res.status(500).json({ message: 'Error unblocking cells' });
     }
 };
-
-
-
-

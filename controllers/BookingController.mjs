@@ -1,5 +1,6 @@
 import db from '../db.mjs';
 
+// Δημιουργεί μια νέα κράτηση
 export const createBooking = (req, res) => {
     const bookings = req.body.bookings;
     const userId = req.session.user.id;
@@ -15,7 +16,13 @@ export const createBooking = (req, res) => {
                 }
 
                 if (bookingsPerDay[booking.date] >= 3) {
-                    throw new Error('You cannot book more than 3 hours in a single day.');
+                    throw new Error('Δεν μπορεις να κλείσεις πάνω απο 3 ώρες σε μια μέρα');
+                }
+
+                // Ελεγχει αν εχει ηδη γινει κρατηση απο αλλο user ή admin
+                const existingBooking = db.prepare('SELECT * FROM bookings WHERE date = ? AND hour = ?').get(booking.date, booking.hour);
+                if (existingBooking) {
+                    throw new Error(`The slot on ${booking.date} at ${booking.hour}:00 is already booked.`);
                 }
 
                 db.prepare('INSERT INTO bookings (user_id, date, hour, color) VALUES (?, ?, ?, ?)').run(userId, booking.date, booking.hour, user.color);
@@ -29,6 +36,7 @@ export const createBooking = (req, res) => {
     }
 };
 
+// Επιστρέφει όλες τις κρατήσεις
 export const getBookings = (req, res) => {
     try {
         const bookings = db.prepare(`
@@ -43,6 +51,7 @@ export const getBookings = (req, res) => {
     }
 };
 
+// Διαγράφει μια κράτηση
 export const deleteBooking = (req, res) => {
     const { date, hour } = req.body;
     const userId = req.session.user.id;
@@ -55,6 +64,7 @@ export const deleteBooking = (req, res) => {
         res.json({ success: false, message: 'Error deleting booking' });
     }
 };
+
 
 
 

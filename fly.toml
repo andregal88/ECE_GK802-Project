@@ -1,0 +1,24 @@
+# fly.toml app configuration file generated for datennisclub on 2024-05-30T17:09:37+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'datennisclub'
+primary_region = 'waw'
+
+[build]
+
+[[mounts]]
+  source = 'data'
+  destination = '/data'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'performance-1x'
