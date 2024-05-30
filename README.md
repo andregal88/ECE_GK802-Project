@@ -33,8 +33,18 @@ node_modules
 npm i
 ```
 
+Θα πρεπει να εκτελεσετε πρωτα στο terminal την εντολη
+```
+node adminSetup.js
+```
+για να δημιουργηθει ο admin.Τα credentials του είναι:
+```
+username=admin
+password=1234
+```
 Για την εκτέλεση της εφαρμογής απλά τρέχετε την εντολή(δεδομένου ότι είστε στο σωστό path):
 ```
 npm start
 ```
+Επίσης,μπορείτε να δείτε και την εφαρμογή στο https://datennisclub.fly.dev/
 
