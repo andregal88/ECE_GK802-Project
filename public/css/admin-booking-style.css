@@ -1,68 +1,68 @@
 body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to bottom, #7164e6, #91e5bb);
-    font-family: Arial, sans-serif;
-}
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #7164e6, #91e5bb);
+            font-family: Arial, sans-serif;
+        }
 
-#instructions {
-    text-align: center;
-    padding: 50px;
-    color: white;
-}
+        #instructions {
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
 
-#instructions h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
+        #instructions h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
 
-#instructions ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 1.2em;
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
-}
+        #instructions ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.2em;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-#instructions li {
-    margin-bottom: 10px;
-}
+        #instructions li {
+            margin-bottom: 10px;
+        }
 
-#content {
-    margin-top: 30px;
-    text-align: center;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-}
+        #content {
+            margin-top: 30px;
+            text-align: center;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
 
-#datepicker {
-    display: inline-block;
-    width: auto;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        #datepicker {
+            display: inline-block;
+            width: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-#blockBtn {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        #blockBtn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-#blockBtn:hover {
-    background-color: #0056b3;
-}
+        #blockBtn:hover {
+            background-color: #0056b3;
+        }

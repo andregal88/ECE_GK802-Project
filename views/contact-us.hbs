@@ -8,25 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-    <form action="https://api.web3forms.com/submit" method="POST">
+    <form action="/contact" method="POST">
         <div class="head">
             <h1>Φόρμα Επικοινωνίας</h1>
             <p>Παρακαλώ όπως συμπληρώσετε <b>όλα</b> τα πεδία</p>
         </div>
-        <input type="hidden" name="access_key" value="dc174a71-952c-4137-bc43-78d3398ae2dc">
-        <label for="name">Ονοματεπώνυμο:</label>
-        <input type="name" name="name" id="name" required>
+        <label for="fullname">Ονοματεπώνυμο:</label>
+        <input type="text" name="fullname" id="fullname" required>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
         <label for="subject">Θέμα:</label>
-        <input type="subject" name="subject" id="subject" required>
+        <input type="text" name="subject" id="subject" required>
         <label for="message">Μήνυμα:</label>
         <textarea name="message" id="message" required></textarea>
         <button type="submit">Υποβολή</button>
     </form>
-<script src="/public/scripts/contact.js"></script>
 </body>
 </html>
 
