@@ -1,22 +1,29 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/randomcolor@0.6.2/randomColor.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Οδηγίες</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
-    <h1>geia</h1>
-    <h1>geia</h1>
-    <h1>geia</h1>
-    <h1>geia</h1>
-    <label for="datepicker">Select a date:</label>
-    <input type="date" id="datepicker" onchange="updateGanttChart()" min="">
-    <button onclick="bookSession()">Book Session</button>
-    <hr>
-    <div id="ganttChart"></div>
-
+    <div id="instructions">
+        <h1>Οδηγίες</h1>
+        <ul>
+            <li>Μπορείτε να κλείστε μέχρι 3 ώρες την ημέρα(μπορεί να είναι σπαστές οι ώρες αν επιθυμείτε)</li>
+            <li>Αν θέλετε να ακυρώστε μια κράτηση που κλείσατε, απλά κάντε κλικ πάνω σε αυτή.</li>
+        </ul>
+    </div>
+    <div id="content">
+        <label for="datepicker">Select a date:</label>
+        <input type="date" id="datepicker" onchange="updateGanttChart()" min="">
+        <button onclick="bookSession()">Book Session</button>
+        <div id="ganttChart"></div>
+    </div>
     <script src="/scripts/booking.js"></script>
 </body>
 </html>
-
-
 
 
 

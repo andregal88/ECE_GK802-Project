@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Bookings</title>
-    <link rel="stylesheet" type="text/css" href="/css/booking-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Οδηγίες</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/admin-booking-style.css">
+    <style>
+        
+    </style>
 </head>
 <body>
-    <h1>Admin Bookings</h1>
-    <h1>Admin Bookings</h1>
-    <h1>Admin Bookings</h1>
-    <h1>Admin Bookings</h1>
-    <h1>Admin Bookings</h1>
-    <h1>Admin Bookings</h1>
-    <input type="date" id="datepicker">
-    <button id="blockBtn">Block Selected Cells</button>
-    <div id="ganttChart"></div>
+    <div id="instructions">
+        <h1>Οδηγίες</h1>
+        <ul>
+            <li>Σαν admin, μπορείτε να κλείσετε οποιαδήποτε ώρα για λόγους συντήρησης.</li>
+            <li>Αν θέλετε να ξανανοίξετε μια ώρα που κλείσατε, απλά κάντε κλικ πάνω σε αυτό.</li>
+        </ul>
+    </div>
+    <div id="content">
+        <input type="date" id="datepicker" class="form-control">
+        <button id="blockBtn" class="btn btn-primary">Block Selected Cells</button>
+        <div id="ganttChart"></div>
+    </div>
     <script src="/scripts/admin-booking-script.js"></script>
 </body>
 </html>
-
-
-
-

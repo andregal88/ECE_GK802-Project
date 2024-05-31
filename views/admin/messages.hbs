@@ -1,41 +1,147 @@
-<body>
-    <h1>Messages</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each messages}}
-                <tr>
-                    <td>{{this.fullname}}</td>
-                    <td>{{this.email}}</td>
-                    <td>{{this.subject}}</td>
-                    <td>
-                        <form action="/admin/messages/delete/{{this.id}}" method="POST" style="display: inline;">
-                            <button type="submit">Διαγραφη</button>
-                        </form>
-                        <button type="button" onclick="viewMessage({{this.id}})">Προβολη</button>
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-    <!-- Modal for viewing message -->
-    <div id="messageModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Message Details</h2>
-            <p id="messageDetails"></p>
+        .background-container {
+            position: relative;
+            background-image: url('../images/download.jpg'); /* Βεβαιωθείτε ότι η διαδρομή είναι σωστή */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Καταλαμβάνει το πλήρες ύψος της σελίδας */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-container {
+            background: rgba(255, 255, 255);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #006942;
+            color: #f7f7f7;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Montserrat';
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="content-container container mt-4">
+            <h1>Μηνύματα</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ονοματεπώνυμο</th>
+                        <th>Email</th>
+                        <th>Θέμα</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each messages}}
+                    <tr>
+                        <td>{{this.fullname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.subject}}</td>
+                        <td>
+                            <button class="btn btn-primary" onclick="viewMessage('{{this.id}}')">Προβολή</button>
+                            <button class="btn btn-danger" onclick="deleteMessage('{{this.id}}')">Διαγραφή</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <script src="/scripts/admin-messages.js"></script>
+    <footer>
+        <p>&copy; Omada 12</p>
+    </footer>
+
+    <!-- Modal for viewing message -->
+    <div id="messageModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Λεπτομέρειες Μηνύματος</h5>
+                    <button type="button" class="close" onclick="closeModal()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="messageDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function viewMessage(id) {
+            try {
+                const response = await fetch(`/admin/messages/view/${id}`);
+                const message = await response.json();
+                
+                const messageDetails = document.getElementById('messageDetails');
+                messageDetails.textContent = message.message;  
+                
+                const modal = document.getElementById('messageModal');
+                modal.style.display = 'block';
+            } catch (error) {
+                console.error('Error viewing message:', error);
+            }
+        }
+
+        async function deleteMessage(id) {
+            if (confirm('Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το μήνυμα;')) {
+                try {
+                    const response = await fetch(`/admin/messages/delete/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (response.ok) {
+                        location.reload(); // Επαναφορτώνουμε τη σελίδα μετά τη διαγραφή
+                    } else {
+                        console.error('Error deleting message:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error deleting message:', error);
+                }
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('messageModal');
+            modal.style.display = 'none';
+            document.getElementById('messageDetails').textContent = ''; 
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('messageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
-
