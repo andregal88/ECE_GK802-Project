@@ -22,6 +22,7 @@ express
 express-handlebars
 express-session
 randomcolor
+node-fetch
 ```
 
 Αν κατεβασετε το repository,ενδεχομενως να ειναι προτιμοτερο να διαγραψετε τον φακελο
